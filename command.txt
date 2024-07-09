@@ -1,0 +1,2 @@
+pip install zhipuai
+pip install llama-index-core llama-index-llms-openai llama-index-llms-replicate llama-index-embeddings-huggingface
