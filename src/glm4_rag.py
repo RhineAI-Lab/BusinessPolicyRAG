@@ -218,9 +218,9 @@ class ChatGLMEmbeddings(BaseEmbedding):
         return self._get_text_embeddings(texts)
 
     def get_general_text_embedding(self, prompt: str) -> List[float]:
-        time.sleep(1)
+        time.sleep(0.1)
         response = self._get_client().embeddings.create(
-            model=self.model, #填写需要调用的模型名称
+            model=self.model,  # 填写需要调用的模型名称
             input=prompt,
         )
         return response.data[0].embedding
@@ -273,3 +273,4 @@ if __name__ == '__main__':
     demo = gr.ChatInterface(process_input).queue()
     print('Gradio Launched:', time.time() - start)
     demo.launch()
+    
