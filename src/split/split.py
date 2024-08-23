@@ -2,7 +2,7 @@ import fitz
 import re
 
 # 打开PDF文件
-pdf_document = "../../data/business.pdf"
+pdf_document = "../../data/business.rag"
 doc = fitz.open(pdf_document)
 
 # 提取文本

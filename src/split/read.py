@@ -14,7 +14,7 @@ page_list = {
 }
 keys = list(page_list.keys())
 
-pdf_document = '../../data/business.pdf'
+pdf_document = '../../data/business.rag'
 doc = fitz.open(pdf_document)
 for city in page_list.keys():
     target_file = f'../../data/split/all/{city}.txt'
