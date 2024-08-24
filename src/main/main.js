@@ -1,5 +1,5 @@
-
-eval("let ele = document.getElementById('rag_chat');" + "\n"
+async () => {
+    eval("let ele = document.getElementById('rag_chat');" + "\n"
   + "console.log(ele)" + "\n"
   + "if (ele) {" + "\n"
   + "ele.parentElement.style.flexGrow = '1'" + "\n"
@@ -9,10 +9,8 @@ eval("let ele = document.getElementById('rag_chat');" + "\n"
   + "element.parentElement.remove()" + "\n"
   + "})" + "\n"
   + "Array.from(document.getElementsByTagName('embed')).forEach(element => {" + "\n"
-  + "element.style.height = '100%'" + "\n"
   + "element.parentElement.style.height = '100%'" + "\n"
   + "element.parentElement.parentElement.style.height = '100%'" + "\n"
   + "element.parentElement.parentElement.parentElement.style.flexGrow = '1'" + "\n"
   + "})" + "\n")
-
-
+}
