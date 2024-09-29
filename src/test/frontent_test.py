@@ -2,7 +2,7 @@ import gradio as gr
 
 
 def process_input(history, html_box):
-  return history, f'<embed src="http://localhost:3330/business.pdf#page={0}" type="application/pdf">'
+  return history, f'<embed src="http://localhost:7880/business.pdf#page={0}" type="application/pdf">'
 
 
 def add_message(history, message):
@@ -16,7 +16,7 @@ def main():
         chatbot = gr.Chatbot()
         chat_input = gr.MultimodalTextbox(interactive=True, file_types=["image"], placeholder="Enter message or upload file...", show_label=False)
       with gr.Column(scale=1):
-        html_box = gr.HTML(value=f'<embed src="http://localhost:3330/business.pdf#page=1" type="application/pdf">')
+        html_box = gr.HTML(value=f'<embed src="http://localhost:7880/business.pdf#page=1" type="application/pdf">')
       chat_msg = chat_input.submit(add_message, [chatbot, chat_input], [chatbot, chat_input])
       bot_msg = chat_msg.then(process_input, [chatbot, html_box], [chatbot, html_box])
       bot_msg.then(lambda: gr.MultimodalTextbox(interactive=True, file_types=["image"], placeholder="Enter message or upload file...", show_label=False), None, [chat_input])

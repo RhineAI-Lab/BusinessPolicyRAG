@@ -164,8 +164,7 @@ class ChatGLMEmbeddings(BaseEmbedding):
   reuse_client: bool = Field(default=True, description=(
     "Reuse the client between requests. When doing anything with large "
     "volumes of async API calls, setting this to false can improve stability."
-  ),
-                             )
+  ))
   
   _client: Optional[Any] = PrivateAttr()
   

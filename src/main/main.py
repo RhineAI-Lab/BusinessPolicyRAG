@@ -1,21 +1,14 @@
-import time
 import re
-import os
-
-from llama_index.core import SimpleDirectoryReader
-from llama_index.core import VectorStoreIndex, StorageContext, Settings, load_index_from_storage
-from llama_index.core.schema import NodeWithScore
 
 import gradio as gr
 
-from glm4_rag import ChatGLM, ChatGLMEmbeddings
 from src.main.prompt_make import process_prompt
 
 # %%
 ZHIPU_API_KEY = 'b3589487b559e0400ced55525f26f3c2.WdVen2vc1c9f9dNC'  # API_KEY
 FILE_DIR = '../../data/rag'  # 知识库目录
 STORAGE_DIR = '../../storage'  # RAG Index缓存
-PDF_URL = 'http://10.177.47.31:3330/business.pdf'  # 展示PDF地址
+PDF_URL = 'http://10.177.47.31:7880/business.pdf'  # 展示PDF地址
 
 page_label = 1
 
@@ -48,14 +41,6 @@ page_label = 1
 # query_retriever = index.as_retriever()
 # print('Done', time.time() - start)
 
-
-def get_file_detail(result: NodeWithScore):
-  dic = {
-    'text': result.text,
-    'file': result.metadata['file_path'],
-    'page': result.metadata['page_label']
-  }
-  return dic
 
 
 def process_input(history, html_box):
@@ -116,7 +101,7 @@ def main():
       chat_msg = chat_input.submit(add_message, [chatbot, chat_input], [chatbot, chat_input])
       bot_msg = chat_msg.then(process, [chatbot, html_box], [chatbot, html_box])
       bot_msg.then(lambda: gr.MultimodalTextbox(interactive=True, file_types=["image"], placeholder="Enter message or upload file...", show_label=False), None, [chat_input])
-  demo.launch(server_name='0.0.0.0')
+  demo.launch(server_name='0.0.0.0', server_port=7900)
 
 
 if __name__ == '__main__':

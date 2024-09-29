@@ -1,4 +1,4 @@
-from src.temp.gpt4 import call_gpt4
+from src.main.gpt4 import call_gpt4
 
 ECONOMIZE_LIST = [
   '北京', '天津', '河北', '山西', '内蒙古', '上海', '江苏', '浙江', '安徽', '山东', '福建', '广东', '广西', '海南',
